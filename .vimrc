@@ -22,6 +22,9 @@ Plugin 'vimwiki/vimwiki'
 " Python
 Plugin 'Valloric/YouCompleteMe'
 
+" PHP
+Plugin 'phpactor/phpactor', {'for': 'php', 'do':'composer install'}
+
 """"""""""""""""""""""""""""
 " Mappings
 """"""""""""""""""""""""""""
