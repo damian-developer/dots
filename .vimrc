@@ -26,6 +26,14 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'phpactor/phpactor', {'for': 'php', 'do':'composer install'}
 
 """"""""""""""""""""""""""""
+" Options
+""""""""""""""""""""""""""""
+
+autocmd vimenter * NERDTree
+
+
+
+""""""""""""""""""""""""""""
 " Mappings
 """"""""""""""""""""""""""""
 
