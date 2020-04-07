@@ -2,8 +2,8 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/$USER/.oh-my-zsh
-  export PATH="$PATH:/home/demian/.config/composer/vendor/bin"
+export ZSH=$HOME/.oh-my-zsh
+export PATH=$HOME/.config/composer/vendor/bin:$PATH
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -53,7 +53,7 @@ ZSH_THEME="bira"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
-plugins=(archlinux)
+#plugins=(archlinux)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -86,8 +86,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+#Custom Alias
+alias diablo="wine /media/demian/datos-win/Games/d2-good/Game.exe"
 
-#prueba_mia
+#Prueba mia
 
 man() {
     env \

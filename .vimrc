@@ -2,7 +2,7 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
  
 " set the runtime path to include Vundle and initialize
-set rtp+=$HOME/.vim/bundle/Vundle
+set rtp+=$HOME/.vim/bundle/Vundle.vim
 call vundle#rc()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
@@ -24,12 +24,23 @@ Plugin 'Valloric/YouCompleteMe'
 
 " PHP
 Plugin 'phpactor/phpactor', {'for': 'php', 'do':'composer install'}
+Plugin 'noahfrederick/vim-laravel'
+
+" VueJs
+Plugin 'leafOfTree/vim-vue-plugin'
 
 """"""""""""""""""""""""""""
 " Options
 """"""""""""""""""""""""""""
 
 autocmd vimenter * NERDTree
+:set number
+
+
+
+""""""""""""""""""""""""""""
+" VueJs
+""""""""""""""""""""""""""""
 
 
 
