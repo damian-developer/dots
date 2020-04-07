@@ -30,9 +30,9 @@ font pango:FuraMonoForPowerline Nerd Font Regular 13
 floating_modifier $mod
 
 #autostart_apps
-exec --no-startup-id compton -b
-exec feh --bg-scale wall.jpg
-exec udiskie
+#exec --no-startup-id compton -b
+#exec feh --bg-scale wall.jpg
+#exec udiskie
 
 
 # start a terminal
@@ -246,19 +246,19 @@ bar {
 #::::::::::::::::::: Settings for i3-gaps :::::::::::::::::::::#
 ################################################################
 
-set $default_gaps_inner 8
-set $default_gaps_outer -4
-gaps inner $default_gaps_inner
-gaps outer $default_gaps_outer
+#set $default_gaps_inner 8
+#set $default_gaps_outer -4
+#gaps inner $default_gaps_inner
+#gaps outer $default_gaps_outer
 
-smart_gaps on
+#smart_gaps on
 
-smart_borders on
+#smart_borders on
 
-set $mode_gaps Gaps: (o) outer, (i) inner
-set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod+Shift+g mode "$mode_gaps"
+#set $mode_gaps Gaps: (o) outer, (i) inner
+#set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+#set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+#bindsym $mod+Shift+g mode "$mode_gaps"
 
 mode "$mode_gaps" {
         bindsym o      mode "$mode_gaps_outer"

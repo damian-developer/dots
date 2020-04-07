@@ -29,10 +29,12 @@
 # Each block command defaults to the script name to avoid boilerplate.
 
 
-command=~/.config/i3blocks/commands/$BLOCK_NAME
+command=/usr/share/i3blocks/$BLOCK_NAME
+separator_block_width=15
+markup=none
 
 
-full_text=
+full_text=/
 align=center
 color=#666666
 separator=false
