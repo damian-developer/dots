@@ -5,8 +5,6 @@
 # this file and re-run i3-config-wizard(1).
 #
 
-# i3 config file (v4)
-#
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
@@ -30,10 +28,16 @@ font pango:FuraMonoForPowerline Nerd Font Regular 13
 floating_modifier $mod
 
 #autostart_apps
-#exec --no-startup-id compton -b
-#exec feh --bg-scale wall.jpg
-#exec udiskie
+exec --no-startup-id compton -b
+exec dunst -config ~/.config/dunst/dunstrc
+exec feh --bg-scale wall.jpg
+exec udiskie
+exec --no-startup-id nm-applet
 
+#Media Keys
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
 # start a terminal
 bindsym $mod+Return exec urxvt
@@ -49,10 +53,10 @@ bindsym $mod+d exec dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+ntilde focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -61,10 +65,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+ntilde move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -73,7 +77,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+x split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -102,14 +106,14 @@ hide_edge_borders none
 
 # customize workspace name
 set $WS1  1: ZSH
-set $WS2  2:Torrent
-set $WS3  3:cosas
-set $WS4  4:mas_cosas
+set $WS2  2:
+set $WS3  3:
+set $WS4  4:
 set $WS5  5:
 set $WS6  6:
 set $WS7  7:
 set $WS8  8:
-set $WS9  9:ª
+set $WS9  9: Code
 set $WS0  10: Games
 
 # switch to workspace
@@ -181,10 +185,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym ntilde resize grow width 10 px or 10 ppt
+        bindsym l resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym h resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -218,8 +222,8 @@ client.background       #ffffff
 #con colors{} definimos algunos colores basicos
 
 bar {
-        status_command i3blocks
-	font pango:Fira Mono Medium for Powerline 10
+    status_command i3blocks
+	font pango:DejaVu Sans Mono, Awesome 10
 	mode dock
 	separator_symbol "·"
 	workspace_buttons yes
@@ -246,19 +250,19 @@ bar {
 #::::::::::::::::::: Settings for i3-gaps :::::::::::::::::::::#
 ################################################################
 
-#set $default_gaps_inner 8
-#set $default_gaps_outer -4
-#gaps inner $default_gaps_inner
-#gaps outer $default_gaps_outer
+set $default_gaps_inner 10
+set $default_gaps_outer -5
+gaps inner $default_gaps_inner
+gaps outer $default_gaps_outer
 
-#smart_gaps on
+smart_gaps on
 
-#smart_borders on
+smart_borders on
 
-#set $mode_gaps Gaps: (o) outer, (i) inner
-#set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-#set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-#bindsym $mod+Shift+g mode "$mode_gaps"
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
 
 mode "$mode_gaps" {
         bindsym o      mode "$mode_gaps_outer"

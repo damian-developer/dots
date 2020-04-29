@@ -62,7 +62,7 @@ markup=pango
 # The type defaults to "mem" if the instance is not specified.
 
 [memory]
-label=MEM
+label=
 separator=false
 interval=30
 markup=pango
@@ -77,7 +77,7 @@ color=#D0D0D0
 # (defaults to 10 for 10%).
 
 [disk]
-label=HOME
+label=HOME 
 #instance=/mnt/data
 interval=30
 
@@ -89,14 +89,14 @@ interval=30
 # The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
 
 [iface]
-label= IP
+label= 
 color=#00FF00
 interval=10
 
 [separator]
 
 [wifi]
-label= Wi-FI
+label= 
 interval=10
 
 
@@ -115,14 +115,14 @@ interval=10
 # Date Time
 #
 [date]
-label=
+label= 
 command=date '+%D'
 interval=30
 
 [separator]
 
 [time]
-label=
+label= 
 command=date '+%H:%M'
 interval=30
 
