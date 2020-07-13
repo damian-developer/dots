@@ -89,6 +89,8 @@ source $ZSH/oh-my-zsh.sh
 #Custom Alias
 alias diablo="wine /media/demian/datos-win/Games/d2-good/Game.exe"
 alias mc="mc -b"
+alias cdcame="cd $HOME/dev/valet3/CAMED"
+alias cddorico="cd $HOME/dev/valet3/DoricoArte"
 
 #Prueba mia
 

@@ -23,10 +23,15 @@ Plugin 'jiangmiao/auto-pairs' 				"Autocomplete brackets
 Plugin 'ryanoasis/vim-devicons'				"Icons
 Plugin 'ctrlpvim/ctrlp.vim'					"Fuzzy Find Files
 Plugin 'preservim/nerdcommenter'
+Plugin 'morhetz/gruvbox' 					"Theme
+Plugin 'chrisbra/colorizer'
 
 "GIT
 Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
 
+"Highlight
+Plugin 'yuezk/vim-js'
 
 "Autocomplete system
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
@@ -38,7 +43,7 @@ Plugin 'noahfrederick/vim-laravel'
 Plugin 'leafOfTree/vim-vue-plugin'
 
 " Misc
-Plugin 'mhinz/vim-startify'
+Plugin 'mhinz/vim-startify'                 "Pantalla de inicio
 
 """"""""""""""""""""""""""""
 " Options
@@ -61,12 +66,15 @@ set wildmenu
 
 "autocmd vimenter * NERDTree
 
+"VIMEnter
+autocmd vimenter * colorscheme gruvbox
 
 "Show lines numbre
 set number
 set relativenumber
 
 "Tab Space
+set expandtab
 set tabstop=4
 set shiftwidth=4
 
@@ -74,6 +82,8 @@ set shiftwidth=4
 set cursorline
 hi cursorline cterm=NONE ctermbg=240 ctermfg=226
 
+"Color Highlight
+set g:colorizer_auto_color=1
 
 "C-Tags
 au BufWritePost *.php silent! !eval '[ -f ".git/hooks/ctags" ] && .git/hooks/ctags' &
@@ -81,7 +91,7 @@ au BufWritePost *.php silent! !eval '[ -f ".git/hooks/ctags" ] && .git/hooks/cta
 """"""""""""""""""""""""""""
 " Laravel
 """"""""""""""""""""""""""""
-nmap <leader>lr :e routes/web.php<cr>
+"nmap <leader>lr :e routes/web.php<cr>
 
 """"""""""""""""""""""""""""
 " VueJs
@@ -123,6 +133,7 @@ let mapleader = ","
 "Languaje Server Procol COC
 """"""""""""""""""""""""""""
 let g:coc_node_path = '/usr/bin/node' "NodeJS Path
+"let g:coc_disable_startup_warning = 1
 
 let g:coc_global_extensions = [
 	\'coc-phpls',
@@ -131,6 +142,8 @@ let g:coc_global_extensions = [
 	\'coc-html',
 	\'coc-css',
 	\'coc-ultisnips',
+	\'coc-vetur',
+	\'coc-eslint'
 	\]
 
 
@@ -155,7 +168,7 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent> <Leader>k :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -163,4 +176,15 @@ function! s:show_documentation()
   else
     call CocAction('doHover')
   endif
+endfunction
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
