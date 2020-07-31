@@ -2,48 +2,53 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
  
 " set the runtime path to include Vundle and initialize
-set rtp+=$HOME/.vim/bundle/Vundle.vim
-call vundle#rc()
+"set rtp+=$HOME/.vim/bundle/Vundle.vim
+"call vundle#rc()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
- 
+
+"Vim-Plug
+call plug#begin('~/.vim/bundle')
+
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+"Plugin 'VundleVim/Vundle.vim'
 
 " Utility
-Plugin 'scrooloose/nerdtree'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'nvie/vim-flake8'
-Plugin 'tbabej/taskwiki'
-Plugin 'vimwiki/vimwiki'
-Plugin 'mattn/emmet-vim'					"HTML Tags		
-Plugin 'jiangmiao/auto-pairs' 				"Autocomplete brackets
-Plugin 'ryanoasis/vim-devicons'				"Icons
-Plugin 'ctrlpvim/ctrlp.vim'					"Fuzzy Find Files
-Plugin 'preservim/nerdcommenter'
-Plugin 'morhetz/gruvbox' 					"Theme
-Plugin 'chrisbra/colorizer'
+Plug 'scrooloose/nerdtree'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-syntastic/syntastic'
+Plug 'nvie/vim-flake8'
+Plug 'tbabej/taskwiki'
+Plug 'vimwiki/vimwiki'
+Plug 'mattn/emmet-vim'					"HTML Tags		
+Plug 'jiangmiao/auto-pairs' 				"Autocomplete brackets
+Plug 'ryanoasis/vim-devicons'				"Icons
+Plug 'ctrlpvim/ctrlp.vim'					"Fuzzy Find Files
+Plug 'preservim/nerdcommenter'
+Plug 'morhetz/gruvbox' 					"Theme
+Plug 'chrisbra/colorizer'
 
 "GIT
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 
 "Highlight
-Plugin 'yuezk/vim-js'
+Plug 'yuezk/vim-js'
 
 "Autocomplete system
-Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " PHP
-Plugin 'noahfrederick/vim-laravel'
+Plug 'noahfrederick/vim-laravel'
 
 " VueJs
-Plugin 'leafOfTree/vim-vue-plugin'
+Plug 'leafOfTree/vim-vue-plugin'
 
 " Misc
-Plugin 'mhinz/vim-startify'                 "Pantalla de inicio
+Plug 'mhinz/vim-startify'                 "Pantalla de inicio
+
+call plug#end()
 
 """"""""""""""""""""""""""""
 " Options
@@ -83,7 +88,7 @@ set cursorline
 hi cursorline cterm=NONE ctermbg=240 ctermfg=226
 
 "Color Highlight
-set g:colorizer_auto_color=1
+"set g:colorizer_auto_color=1
 
 "C-Tags
 au BufWritePost *.php silent! !eval '[ -f ".git/hooks/ctags" ] && .git/hooks/ctags' &
@@ -133,7 +138,7 @@ let mapleader = ","
 "Languaje Server Procol COC
 """"""""""""""""""""""""""""
 let g:coc_node_path = '/usr/bin/node' "NodeJS Path
-"let g:coc_disable_startup_warning = 1
+let g:coc_disable_startup_warning = 1
 
 let g:coc_global_extensions = [
 	\'coc-phpls',

@@ -1,0 +1,6 @@
+//Mi config
+
+rofi.theme: /usr/share/rofi/themes/Monokai.rasi
+
+show-icons: true;
+columns: 1;
