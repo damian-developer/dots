@@ -1,5 +1,5 @@
 [global]
-    font = Monospace 8
+    font = Noto Emoji, Monospace 12
 
     # allow a small subset of html markup:
     # <b>bold</b>
@@ -9,7 +9,7 @@
     #
     # for a complete reference see http://developer.gnome.org/pango/stable/PangoMarkupFormat.html
     # If markup is not allowed, those tags will be stripped out of the message.
-    allow_markup = yes
+    markup = full
 
     # The format of the message. Possible variables are:
     #   %a  appname
@@ -19,7 +19,7 @@
     #   %I  iconname (without its path)
     #   %p  progress value if set ([  0%] to [100%]) or nothing
     # Markup is allowed
-    format = "<b>%a:</b> %s\n%b"
+    format = "<b>%a:</b>\n%s\n<b>%b</b>"
 
     # Sort messages by urgency
     sort = yes
@@ -35,7 +35,7 @@
     # window allows bounces back and forth.
     # This option conflicts with 'word_wrap'.
     # Set to 0 to disable
-    bounce_freq = 0
+    #bounce_freq = 0
 
     # show age of message if message is older than show_age_threshold seconds.
     # set to -1 to disable
@@ -59,7 +59,13 @@
     # right side of the screen.  Y is measured from the top and down respectevly.
     # The width can be negative. In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "400x500-30+50"
+    #geometry = "400x500-30+50"
+
+    width = 400
+    height = 100
+    offset = 700x30
+    origin = top
+
 
     # The transparency of the window. range: [0; 100]
     # This option will only work if a compositing windowmanager is present (e.g. xcompmgr, compiz, etc..)
@@ -104,6 +110,8 @@
     # horizontal padding
     horizontal_padding = 8
 
+    corner_radius = 5
+
     # Define a color for the separator.
     # possible values are:
     #  * auto: dunst tries to find a color fitting to the background
@@ -115,7 +123,7 @@
     # print a notification on startup
     # This is mainly for error detection, since dbus (re-)starts dunst
     # automatically after a crash.
-    startup_notification = true
+    #startup_notification = true
 
     # dmenu path
     dmenu = /usr/bin/dmenu -p dunst:
@@ -123,27 +131,22 @@
     # browser for opening urls in context menu
     browser = /usr/bin/firefox -new-tab
 
-[frame]
-    width = 0
-    color = "#000000"
 
-[shortcuts]
-    # shortcuts are specified as [modifier+][modifier+]...key
-    # available modifiers are 'ctrl', 'mod1' (the alt-key), 'mod2', 'mod3'
-    # and 'mod4' (windows-key)
-    # xev might be helpful to find names for keys
+[format-changue]
+    appname = dunstify
+    format = "<b>%s</b>\n<i>%b</i>"
+    alignment = left
+    frame_color= "#8CAAEE"
 
-    # close notification
-    close = mod4+m
+[firefox]
+    appname = firefox
+    frame_color = "#B7472A"
+    foreground = "#3B7C87"
+    timeout = 4
 
-    # close all notifications
-    close_all = mod4+shift+m
-
-    # redisplay last message(s)
-    history = mod4+n
-
-    # context menu
-    context = mod4+shift+i
+[discord]
+    appname = discord
+    frame_color =
 
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.

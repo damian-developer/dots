@@ -28,9 +28,10 @@ font pango:InconsolataNerdFont Regular 11
 floating_modifier $mod
 
 #autostart_apps
+exec --no-startup-id ~/dots/launch.sh &
 exec --no-startup-id compton -b
 exec_always --no-startup-id ~/dots/polybar.sh &
-exec dunst -config ~/.config/dunst/dunstrc
+exec dunst -config ~/dots/dunst/dunstrc
 exec feh --bg-scale wall.jpg
 exec udiskie --no-startup-id
 exec --no-startup-id nm-applet
@@ -41,6 +42,10 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
 bindsym --release $mod+Print exec --no-startup-id import $HOME/screenshot.png
+
+# Bind multimonitor
+bindsym $mod+p move workspace to output left
+
 # start a terminal
 bindsym $mod+Return exec urxvt
 
@@ -109,16 +114,16 @@ bindsym $mod+a focus parent
 hide_edge_borders none
 
 # customize workspace name
-set $WS1  1: ZSH
-set $WS2  2:
-set $WS3  3:
-set $WS4  4:
-set $WS5  5:
-set $WS6  6:
-set $WS7  7:
-set $WS8  8:
-set $WS9  9: Code
-set $WS0  10: Games
+set $WS1  "1:"
+set $WS2  "2:"
+set $WS3  "3:"
+set $WS4  "4:"
+set $WS5  "5:"
+set $WS6  "6:"
+set $WS7  "7:"
+set $WS8  "8:"
+set $WS9  "9:"
+set $WS0  "10:"
 
 # switch to workspace
 bindsym $mod+1 workspace $WS1
@@ -147,10 +152,11 @@ bindsym $mod+Shift+0 move container to workspace $WS0
 #Asignar app a espacio de trabajo
 
 assign [class="Deluge"] $WS2
-assign [class="chromium"] $WS3
+assign [class="Chromium"] $WS3
 assign [class="Telegram"] $WS6
-assign [class="Firefox"] $WS3
- 
+assign [class="discord"] $WS6
+assign [class="firefox"] $WS3
+assign [class="zoom"] $WS8
 
 #float_windows
 
@@ -256,7 +262,7 @@ client.background       #ffffff
 ################################################################
 
 set $default_gaps_inner 10
-set $default_gaps_outer -5
+set $default_gaps_outer 0
 gaps inner $default_gaps_inner
 gaps outer $default_gaps_outer
 

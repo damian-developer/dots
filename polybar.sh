@@ -1,4 +1,5 @@
-#!/usr/bin/env sh
+######/usr/bin/env sh
+#!/bin/sh
 
 # Terminate already running bar instances
 killall -q polybar
@@ -7,4 +8,12 @@ killall -q polybar
 while pgrep -x polybar >/dev/null; do sleep 1; done
 
 # Launch polybar
-polybar example &
+#polybar example --config=$HOME/dots/polybar/config &
+#
+if type "xrandr"; then
+  for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+    MONITOR=$m polybar --reload example --config=$HOME/dots/polybar/config &
+  done
+else
+  polybar --reload example --config=$HOME/dots/polybar/config &
+fi
