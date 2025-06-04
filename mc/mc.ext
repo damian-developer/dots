@@ -1,0 +1,14 @@
+[mc.ext.ini]
+Version=4.0
+
+### Images ###
+[webp]
+Shell=.webp
+Include=image
+
+[png]
+Shell=.png
+Open=$HOME/.config/mc/image.sh open png
+
+[Include/image]
+Open=feh %f &
