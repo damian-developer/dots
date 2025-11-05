@@ -1,0 +1,9 @@
+[Unit]
+Description=Cleanup cache when Stremio is close
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash -c 'if pgrep stremio >/dev/null; then while pgrep stremio >/dev/null; do sleep 2; done; bash $HOME/dots/scripts/stremio-cleanup.sh; fi'
+
+[Install]
+WantedBy=default.target

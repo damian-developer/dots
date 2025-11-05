@@ -1,0 +1,11 @@
+[Unit]
+Description=Monitor Stremio close
+
+[Timer]
+OnBootSec=15
+OnUnitActiveSec=10
+Unit=stremio-cleanup.service
+
+[Install]
+WantedBy=default.target
+
